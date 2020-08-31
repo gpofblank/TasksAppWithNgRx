@@ -23,7 +23,6 @@ export class TaskEffects {
     )
   );
 
-  //TODO: edit task effect
   editTask = createEffect(() =>
     this.action$.pipe(
       ofType(TaskActions.EditTask),
@@ -36,7 +35,6 @@ export class TaskEffects {
     )
   );
 
-  //TODO: delete task effect
   deleteTask = createEffect(() =>
     this.action$.pipe(
       ofType(TaskActions.RemoveTask),
