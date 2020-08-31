@@ -21,13 +21,15 @@ export class AlertService {
 
   public success(config: Partial<Alert> = alertDefault) {
     this.snackBar.openFromComponent(AlertComponent, {
-      data: { ...alertDefault, ...config, type: AlertType.SUCCESS },
+      data: { ...alertDefault, ...config, type: AlertType.SUCCESS }, duration: 3000
+
     });
   }
 
   public error(config: Partial<Alert>) {
     this.snackBar.openFromComponent(AlertComponent, {
-      data: { ...alertDefault, ...config, type: AlertType.ERROR },
+      data: { ...alertDefault, ...config, type: AlertType.ERROR }, duration: 3000
+
     });
   }
 }
