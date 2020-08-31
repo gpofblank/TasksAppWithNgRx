@@ -27,4 +27,13 @@ export class AlertEffects {
       ),
     { dispatch: false }
   );
+
+  editTaskEfect$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(TaskActions.EditTask),
+        tap(() => this.alerts.success({ message: 'Task Edited' }))
+      ),
+    { dispatch: false }
+  );
 }

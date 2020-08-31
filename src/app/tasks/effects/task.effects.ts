@@ -24,6 +24,28 @@ export class TaskEffects {
   );
 
   //TODO: edit task effect
+  editTask = createEffect(() =>
+    this.action$.pipe(
+      ofType(TaskActions.EditTask),
+      switchMap((action) => {
+        return this.taskService.editTask(action.updates).pipe(
+          map((res) => TaskActions.EditTaskSuccess({ task: res.updates })),
+          catchError((err) => of(TaskActions.EditTaskError({ error: err })))
+        );
+      })
+    )
+  );
 
   //TODO: delete task effect
+  deleteTask = createEffect(() =>
+    this.action$.pipe(
+      ofType(TaskActions.RemoveTask),
+      switchMap((action) => {
+        return this.taskService.removeTask(action.taskId).pipe(
+          map((res) => TaskActions.RemoveTaskSuccess({ task: res.taskId })),
+          catchError((err) => of(TaskActions.RemoveTaskError({ error: err })))
+        );
+      })
+    )
+  );
 }

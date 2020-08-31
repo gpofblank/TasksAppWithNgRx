@@ -17,6 +17,16 @@ export class TaskService {
   }
 
   //TODO: Edit Task Method
+  public editTask(updates) {
+    console.log('updating task');
+    const id = uuid();
+    return of({ updates }).pipe(delay(1000));
+  }
 
   //TODO:  Delete TASK METHOD
+  public removeTask(taskId) {
+    console.log('removing task');
+    const id = uuid();
+    return of({ taskId }).pipe(delay(1000));
+  }
 }

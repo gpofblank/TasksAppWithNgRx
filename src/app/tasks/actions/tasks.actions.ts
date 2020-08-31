@@ -26,3 +26,23 @@ export const RemoveTask = createAction(
   '[Tasks] Remove Task',
   props<{ taskId: string }>()
 );
+
+export const RemoveTaskSuccess = createAction(
+  '[Tasks] Remove Task Succcess',
+  props<{ task: Task }>()
+);
+
+export const RemoveTaskError = createAction(
+  '[Tasks] Edit Task Error',
+  props<{ error: any }>()
+);
+
+export const EditTaskSuccess = createAction(
+  '[Tasks] Edit Task Succcess',
+  props<{ task: Task }>()
+);
+
+export const EditTaskError = createAction(
+  '[Tasks] Edit Task Error',
+  props<{ error: any }>()
+);
