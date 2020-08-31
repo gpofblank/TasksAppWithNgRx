@@ -20,13 +20,13 @@ export class TaskService {
   public editTask(updates) {
     console.log('updating task');
     const id = uuid();
-    return of({ updates }).pipe(delay(1000));
+    return of(updates).pipe(delay(1000));
   }
 
   //TODO:  Delete TASK METHOD
   public removeTask(taskId) {
     console.log('removing task');
     const id = uuid();
-    return of({ taskId }).pipe(delay(1000));
+    return of(taskId).pipe(delay(1000));
   }
 }

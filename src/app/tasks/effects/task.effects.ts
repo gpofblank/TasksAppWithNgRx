@@ -29,7 +29,7 @@ export class TaskEffects {
       ofType(TaskActions.EditTask),
       switchMap((action) => {
         return this.taskService.editTask(action.updates).pipe(
-          map((res) => TaskActions.EditTaskSuccess({ task: res.updates })),
+          map((res) => TaskActions.EditTaskSuccess({ updates: res })),
           catchError((err) => of(TaskActions.EditTaskError({ error: err })))
         );
       })
@@ -42,7 +42,7 @@ export class TaskEffects {
       ofType(TaskActions.RemoveTask),
       switchMap((action) => {
         return this.taskService.removeTask(action.taskId).pipe(
-          map((res) => TaskActions.RemoveTaskSuccess({ task: res.taskId })),
+          map((res) => TaskActions.RemoveTaskSuccess({ taskId: res })),
           catchError((err) => of(TaskActions.RemoveTaskError({ error: err })))
         );
       })

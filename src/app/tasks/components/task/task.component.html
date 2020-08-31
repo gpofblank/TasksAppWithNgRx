@@ -9,4 +9,5 @@
   <button (click)="editClicked()" mat-icon-button color="primary">
     <mat-icon>edit</mat-icon>
   </button>
+  <p *ngIf="task.isLoading">loading</p>
 </mat-list-item>

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, createEffect, ofType } from '@ngrx/effects';
-import { Observable } from 'rxjs';
-
 import * as TaskActions from '../../tasks/actions/tasks.actions';
 import { map, tap, share } from 'rxjs/operators';
 import { AlertService } from '../alert.service';
@@ -13,25 +11,25 @@ export class AlertEffects {
   createTaskEffect$ = createEffect(
     () =>
       this.action$.pipe(
-        ofType(TaskActions.CreateTask),
+        ofType(TaskActions.CreatTaskSuccess),
         tap(() => this.alerts.success({ message: 'Task Created!' }))
       ),
     { dispatch: false }
   );
 
-  deleteTaskEfect$ = createEffect(
+  deleteTaskEffect$ = createEffect(
     () =>
       this.action$.pipe(
-        ofType(TaskActions.RemoveTask),
+        ofType(TaskActions.RemoveTaskSuccess),
         tap(() => this.alerts.success({ message: 'Task Deleted' }))
       ),
     { dispatch: false }
   );
 
-  editTaskEfect$ = createEffect(
+  editTaskEffect$ = createEffect(
     () =>
       this.action$.pipe(
-        ofType(TaskActions.EditTask),
+        ofType(TaskActions.EditTaskSuccess),
         tap(() => this.alerts.success({ message: 'Task Edited' }))
       ),
     { dispatch: false }
